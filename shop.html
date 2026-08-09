@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop | Crochet Al-chemi</title>
+  
+  <!-- Google Fonts for Awwwards-style Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crochet Al-chemi | Custom Crochet Creations</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Ambient Glow Effects -->
+  <div class="bg-glow glow-1"></div>
+  <div class="bg-glow glow-2"></div>
+
+  <!-- Header -->
+  <header>
+    <a href="index.html" class="brand-logo">
+      <img src="assets/logo.svg" onerror="this.onerror=null; this.src='assets/logo.png';" alt="Crochet Al-chemi Logo">
+      <div class="brand-title">Crochet Al-chemi</div>
+    </a>
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="shop.html">Shop Collection</a>
+      <a href="https://wa.me/8801989029586?text=Hi!%20I'm%20interested%20in%20wholesale%20pricing%20and%20bulk%20orders." target="_blank" rel="noopener">Wholesale Orders</a>
+      <a href="shop.html" class="nav-btn">Explore Shop</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-badge">
+      <span>✨</span> Wholesale & Individual Orders Available
+    </div>
+    <h1>Transforming Yarn into Magical Works of Art</h1>
+    <p class="slogan">"Custom crochet creations made with precision , care and a touch of alchemi ."</p>
+    
+    <div class="hero-ctas">
+      <a href="shop.html" class="btn-primary">Browse Shop & Buy</a>
+      <a href="https://wa.me/8801989029586?text=Hi!%20I%20would%20like%20to%20discuss%20a%20custom%20crochet%20order." target="_blank" rel="noopener" class="btn-secondary">Request Custom Order</a>
+    </div>
+  </section>
+
+  <!-- Features & Wholesale Highlights -->
+  <section class="features-section">
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🧪</div>
+        <h3>The Alchemy of Craft</h3>
+        <p>Every stitch is carefully calculated and executed. From intricate keychains to plushies, we mix precision with passion.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📦</div>
+        <h3>Wholesale & Retail</h3>
+        <p>Whether you're looking for a single custom gift or supplying a boutique shop in bulk, we accommodate orders of all sizes.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💬</div>
+        <h3>Direct WhatsApp Chat</h3>
+        <p>Seamless ordering! Simply click purchase on any item to open a direct chat with product details auto-filled for instant confirmation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products Preview -->
+  <section class="featured-section">
+    <div class="section-header">
+      <h2>Featured Creations</h2>
+      <a href="shop.html">View All Products &rarr;</a>
+    </div>
+    
+    <div id="featured-grid" class="grid">
+      <!-- Injected from products.js -->
+    </div>
+  </section>
+
+  <!-- Bottom Left Creator Attribution -->
+  <div class="creator-info">
+    Crafted by <a href="https://smkfarabi-stack.github.io/my-portfolio/" target="_blank" rel="noopener">SMK Farabi</a>
+  </div>
+
+  <!-- Load Product Data & Render Top Items -->
+  <script src="products.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.getElementById('featured-grid');
+
+      if (typeof PRODUCTS_DATA === 'undefined' || PRODUCTS_DATA.length === 0) {
+        grid.innerHTML = '<p style="color: var(--text-muted);">No featured items available.</p>';
+        return;
+      }
+
+      // Show top 3 products on landing page
+      const featured = PRODUCTS_DATA.slice(0, 3);
+
+      grid.innerHTML = featured.map(product => {
+        const phone = (product.whatsappNumber || '+8801989029586').replace(/[^0-9]/g, '');
+        const textMessage = encodeURIComponent(
+          `Hi! I would like to inquire about:\n• ${product.name} (ID: ${product.id})\n• Price: ${product.price}`
+        );
+        const waUrl = `https://wa.me/${phone}?text=${textMessage}`;
+
+        return `
+          <article class="card">
+            <div class="card-img-wrapper">
+              <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/400x300/1e1035/38bdf8?text=Crochet+Al-chemi'">
+            </div>
+            <div class="card-content">
+              <div>
+                <h3 class="product-title">${product.name}</h3>
+                <p class="product-desc">${product.description || 'Precision handcrafted crochet item.'}</p>
+              </div>
+              <div class="card-footer">
+                <span class="price">${product.price}</span>
+                <a href="${waUrl}" target="_blank" rel="noopener" class="btn-buy">Purchase</a>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+    });
+  </script>
+</body>
+</html>
+</head>
+<body>
+
+  <!-- Ambient Glow Effects -->
+  <div class="bg-glow glow-1"></div>
+  <div class="bg-glow glow-2"></div>
+
+  <!-- Header -->
+  <header>
+    <a href="#" class="brand-logo">
+      <!-- Logo fallback handling: load SVG or PNG -->
+      <img src="assets/logo.svg" onerror="this.onerror=null; this.src='assets/logo.png';" alt="Crochet Al-chemi Logo">
+      <div>
+        <div class="brand-title">Crochet Al-chemi</div>
+        <div class="tagline">Made with precision, care and a touch of alchemi</div>
+      </div>
+    </a>
+  </header>
+
+  <!-- Hero Header -->
+  <section class="shop-hero">
+    <h1>Handcrafted Collection</h1>
+    <p>Explore our alchemy of stitches. Available for retail enthusiasts and wholesale partners looking for custom, high-precision creations.</p>
+  </section>
+
+  <!-- Storefront Grid -->
+  <main class="container">
+    <div id="product-grid" class="grid">
+      <!-- Products will be injected dynamically via JS -->
+    </div>
+  </main>
+
+  <!-- Bottom Left Creator Info -->
+  <div class="creator-info">
+    Crafted by <a href="https://smkfarabi-stack.github.io/my-portfolio/" target="_blank" rel="noopener">SMK Farabi</a>
+  </div>
+
+  <!-- Load Products Data -->
+  <script src="products.js"></script>
+
+  <!-- Render Products Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.getElementById('product-grid');
+
+      if (typeof PRODUCTS_DATA === 'undefined' || PRODUCTS_DATA.length === 0) {
+        grid.innerHTML = '<p style="text-align:center; grid-column: 1/-1; color: var(--text-muted);">No products found in database.</p>';
+        return;
+      }
+
+      grid.innerHTML = PRODUCTS_DATA.map(product => {
+        // Fallback WhatsApp number if missing or invalid
+        const phone = (product.whatsappNumber || '+8801989029586').replace(/[^0-9]/g, '');
+        
+        // Dynamic WhatsApp message draft
+        const textMessage = encodeURIComponent(
+          `Hi! I would like to order/inquire about:\n\n` +
+          `• Item: ${product.name}\n` +
+          `• ID: ${product.id}\n` +
+          `• Price: ${product.price}`
+        );
+
+        const waUrl = `https://wa.me/${phone}?text=${textMessage}`;
+
+        return `
+          <article class="card">
+            <div class="card-img-wrapper">
+              <span class="category-tag">${product.category || 'Crochet'}</span>
+              <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/400x300/1e1035/38bdf8?text=Crochet+Al-chemi'">
+            </div>
+            <div class="card-content">
+              <div>
+                <div class="product-id">${product.id}</div>
+                <h2 class="product-title">${product.name}</h2>
+                <p class="product-desc">${product.description || 'Custom handcrafted item made with precision.'}</p>
+              </div>
+              <div class="card-footer">
+                <div class="price">${product.price}</div>
+                <a href="${waUrl}" target="_blank" rel="noopener" class="btn-whatsapp">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984 0 1.762.459 3.48 1.332 5.001l-1.416 5.169 5.291-1.387c1.467.8 3.12 1.223 4.781 1.223h.004c5.505 0 9.987-4.478 9.989-9.985 0-2.666-1.037-5.172-2.923-7.059-1.884-1.886-4.391-2.924-7.058-2.924zm5.834 14.162c-.244.688-1.427 1.309-1.956 1.393-.497.079-1.148.113-1.85-.113-.427-.137-.978-.317-1.696-.628-2.986-1.294-4.938-4.321-5.088-4.521-.149-.2-1.22-1.625-1.22-3.1 0-1.476.772-2.203 1.046-2.502.274-.299.598-.374.798-.374.2 0 .399.002.573.01.186.009.436-.07.684.524.249.598.847 2.067.922 2.217.075.15.124.324.025.523-.099.199-.15.324-.298.5-.15.174-.315.389-.45.522-.15.149-.306.313-.131.613.174.299.774 1.278 1.66 2.068 1.139 1.015 2.1 1.33 2.399 1.48.299.15.474.125.649-.075.174-.2.748-.872.947-1.171.199-.299.399-.249.673-.149.274.099 1.745.822 2.044.972.299.15.498.224.573.349.075.124.075.723-.169 1.411z"/>
+                  </svg>
+                  Purchase
+                </a>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+    });
+  </script>
+</body>
+</html>

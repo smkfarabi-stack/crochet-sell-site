@@ -1,0 +1,521 @@
+/* ==========================================================================
+   Crochet Al-chemi — Global Design System & Stylesheet
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS Variables / Design Tokens
+   -------------------------------------------------------------------------- */
+:root {
+  --bg-dark: #0a0518;
+  --bg-card: rgba(26, 12, 45, 0.55);
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-border-hover: rgba(168, 85, 247, 0.4);
+
+  --accent-purple: #a855f7;
+  --accent-cyan: #38bdf8;
+  --royal-purple-glow: rgba(126, 34, 206, 0.45);
+  --royal-blue-glow: rgba(30, 58, 138, 0.4);
+
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+
+  --radius-lg: 20px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset & Base Setup
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   3. Ambient Background Glow Effects
+   -------------------------------------------------------------------------- */
+.bg-glow {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.glow-1 {
+  width: 500px;
+  height: 500px;
+  top: -100px;
+  left: -150px;
+  background: radial-gradient(circle, rgba(126, 34, 206, 0.35) 0%, rgba(0, 0, 0, 0) 70%);
+}
+
+.glow-2 {
+  width: 600px;
+  height: 600px;
+  bottom: -150px;
+  right: -150px;
+  background: radial-gradient(circle, rgba(30, 58, 138, 0.35) 0%, rgba(0, 0, 0, 0) 70%);
+}
+
+/* --------------------------------------------------------------------------
+   4. Header & Navigation
+   -------------------------------------------------------------------------- */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 2rem;
+  background: rgba(10, 5, 24, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--glass-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.brand-logo img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.brand-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  background: linear-gradient(135deg, #ffffff 0%, var(--accent-purple) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+nav a {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: var(--transition-smooth);
+}
+
+nav a:hover, nav a.active {
+  color: #ffffff;
+}
+
+.nav-btn {
+  padding: 0.5rem 1.25rem;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--glass-border);
+  color: var(--text-main) !important;
+}
+
+.nav-btn:hover {
+  background: var(--accent-purple);
+  border-color: var(--accent-purple);
+  box-shadow: 0 0 15px var(--royal-purple-glow);
+}
+
+/* --------------------------------------------------------------------------
+   5. Hero Section & Circular Title Logo
+   -------------------------------------------------------------------------- */
+.hero {
+  text-align: center;
+  padding: 5rem 1.5rem 3.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  border-radius: 30px;
+  background: rgba(168, 85, 247, 0.1);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  color: var(--accent-purple);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  line-height: 1.25;
+  font-weight: 700;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-bottom: 1.2rem;
+}
+
+/* Circular Logo inside Hero Title */
+.title-logo-circle {
+  width: 172px;
+  height: 172px;
+  border-radius: 50%;
+  background: rgba(59, 7, 100, 0.5);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  box-shadow: 0 0 25px rgba(126, 34, 206, 0.45);
+  flex-shrink: 0;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.title-logo-circle:hover {
+  transform: scale(1.08) rotate(5deg);
+  box-shadow: 0 0 35px rgba(56, 189, 248, 0.6);
+}
+
+.title-logo-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.slogan {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  font-style: italic;
+  max-width: 650px;
+  margin: 0 auto 2.5rem;
+}
+
+.hero-ctas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* --------------------------------------------------------------------------
+   6. Buttons
+   -------------------------------------------------------------------------- */
+.btn-primary, .btn-secondary, .btn-buy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.8rem;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: var(--transition-smooth);
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-purple) 0%, #7e22ce 100%);
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(126, 34, 206, 0.35);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(126, 34, 206, 0.55);
+}
+
+.btn-secondary {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--text-main);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   7. Features & Wholesale Section
+   -------------------------------------------------------------------------- */
+.features-section {
+  max-width: 1100px;
+  margin: 2rem auto 5rem;
+  padding: 0 1.5rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.feature-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: var(--transition-smooth);
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--glass-border-hover);
+  box-shadow: 0 10px 30px rgba(126, 34, 206, 0.2);
+}
+
+.feature-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  margin-bottom: 0.6rem;
+  color: #ffffff;
+}
+
+.feature-card p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   8. Product Showcase Grid & Cards
+   -------------------------------------------------------------------------- */
+.featured-section {
+  max-width: 1100px;
+  margin: 0 auto 6rem;
+  padding: 0 1.5rem;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.section-header h2 {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  color: #ffffff;
+}
+
+.section-header a {
+  color: var(--accent-cyan);
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: var(--transition-smooth);
+}
+
+.section-header a:hover {
+  text-decoration: underline;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-smooth);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: var(--glass-border-hover);
+  box-shadow: 0 15px 35px rgba(107, 33, 168, 0.25);
+}
+
+.card-img-wrapper {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.card-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .card-img-wrapper img {
+  transform: scale(1.06);
+}
+
+.card-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.product-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.product-desc {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.price {
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: var(--accent-cyan);
+}
+
+.btn-buy {
+  padding: 0.55rem 1.2rem;
+  font-size: 0.85rem;
+  border-radius: 20px;
+  background: #25d366; /* WhatsApp Green */
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+.btn-buy:hover {
+  background: #20ba5a;
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.45);
+  transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   9. Bottom Left Creator Attribution
+   -------------------------------------------------------------------------- */
+.creator-info {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 90;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  background: rgba(10, 5, 24, 0.85);
+  border: 1px solid var(--glass-border);
+  padding: 0.4rem 0.85rem;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.creator-info a {
+  color: var(--accent-purple);
+  font-weight: 600;
+  transition: var(--transition-smooth);
+}
+
+.creator-info a:hover {
+  color: var(--accent-cyan);
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   10. Responsive Media Queries
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  header {
+    padding: 1rem 1.25rem;
+  }
+
+  nav {
+    gap: 1rem;
+  }
+
+  nav a:not(.active):not(.nav-btn) {
+    display: none; /* Keep header clean on small screens */
+  }
+
+  .hero {
+    padding: 3.5rem 1rem 2.5rem;
+  }
+
+  .hero-title {
+    font-size: 2.1rem;
+  }
+
+  .title-logo-circle {
+    width: 56px;
+    height: 56px;
+    padding: 8px;
+  }
+
+  .creator-info {
+    position: static;
+    text-align: center;
+    margin: 2rem auto 1.5rem;
+    width: fit-content;
+  }
+}
