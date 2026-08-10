@@ -9,6 +9,6 @@ const PRODUCTS_DATA = [
     category: "Medium",
     price: "150",
     description: "Medium bag charm",
-    image: "Sunflower_charm.jpg"
+    image: "Sunflower_charm.png"
   },
 ];
