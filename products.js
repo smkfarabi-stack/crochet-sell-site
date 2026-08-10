@@ -3,12 +3,13 @@
    ========================================================== */
 
 const PRODUCTS_DATA = [
-  {
-    id: "002",
-    name: "Sunflower charm",
-    category: "Medium",
+
+     {
+    id: "001",
+    name: "Pouch / Drawstring bag",
+    category: "Small",
     price: "150",
-    description: "Medium bag charm",
-    image: "Sunflower_charm.png"
+    description: "small pouch",
+    image: "Pouch.jpg"
   },
 ];
