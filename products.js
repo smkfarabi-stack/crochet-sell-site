@@ -18,6 +18,14 @@ const PRODUCTS_DATA = [
     price: "160",
     description: "charm",
     image: "assets/products/2.jpg"
-  }
+  },
+     {
+    id: "003",
+    name: "Rose keychain",
+    category: "Medium",
+    price: "120",
+    description: "keychain",
+    image: "assets/products/3.jpg"
+  },
 ];
 
