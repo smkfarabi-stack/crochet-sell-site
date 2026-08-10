@@ -5,9 +5,9 @@
 const PRODUCTS_DATA = [
 {
     id: "001",
-    name: "Pouch/ Drawstring bag",
+    name: "Pouch ",
     price: "150",
-    image: "assets/products/Pouch1.jpg",
-    whatsappLink: "https://wa.me/8801989029586?text=Hi%2C%20I%20want%20to%20purchase%20Pouch%2F%20Drawstring%20bag%20(ID%3A%20001)."
+    image: "assets/products/Pouch.jpg",
+    whatsappLink: "https://wa.me/8801989029586?text=Hi%2C%20I%20want%20to%20purchase%20Pouch%20%20(ID%3A%20001)."
 },
 ];
