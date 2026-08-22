@@ -8,7 +8,7 @@ const PRODUCTS_DATA = [
     name: "Pouch / Drawstring bag",
     category: "Small",
     price: "150",
-    description: "small pouch",
+    description: "Custom size and color available",
     image: "assets/products/Pouch.jpg"
   },
   {
@@ -48,7 +48,7 @@ const PRODUCTS_DATA = [
     name: "Flower charm",
     category: "Small",
     price: "99",
-    description: "Precision handcrafted crochet item.",
+    description: "Custom size and color available",
     image: "assets/products/6.jpg",
     whatsappLink: "https://wa.me/8801572917674?text=Hello!%20I%20would%20like%20to%20order%3A%20Flower%20charm%20(ID%3A%20006)%20-%20Price%3A%20%E0%A7%B399"
   },
@@ -57,7 +57,7 @@ const PRODUCTS_DATA = [
     name: "Cat pouch",
     category: "Small",
     price: "180",
-    description: "Precision handcrafted crochet item.",
+    description: "Custom size and color available.",
     image: "assets/products/7.jpg",
     whatsappLink: "https://wa.me/8801572917674?text=Hello!%20I%20would%20like%20to%20order%3A%20Cat%20pouch%20(ID%3A%20007)%20-%20Price%3A%20%E0%A7%B3180"
   },
