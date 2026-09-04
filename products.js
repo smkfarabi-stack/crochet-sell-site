@@ -47,7 +47,7 @@ const PRODUCTS_DATA = [
     id: "006",
     name: "Flower charm",
     category: "Small",
-    price: "99",
+    price: "120",
     description: "Custom size and color available",
     image: "assets/products/6.jpg",
     whatsappLink: "https://wa.me/8801572917674?text=Hello!%20I%20would%20like%20to%20order%3A%20Flower%20charm%20(ID%3A%20006)%20-%20Price%3A%20%E0%A7%B399"
@@ -65,10 +65,19 @@ const PRODUCTS_DATA = [
     id: "008",
     name: "Star & Moon keychain",
     category: "Small",
-    price: "160/ pair",
+    price: "150/ pair",
     description: "customized color & size available",
     image: "assets/products/8.jpg",
     whatsappLink: "https://wa.me/8801572917674?text=Hello!%20I%20would%20like%20to%20order%3A%20Star%20%26%20Moon%20keychain%20(ID%3A%20008)%20-%20Price%3A%20%E0%A7%B3160%2F%20pair"
+  },
+     {
+    id: "009",
+    name: "Bookmark",
+    category: "Small",
+    price: "40",
+    description: "Customized color, design & size available",
+    image: "assets/products/9.jpg",
+    whatsappLink: "https://wa.me/8801572917674?text=Hello!%20I%20would%20like%20to%20order%3A%20Bookmark%20(ID%3A%20009)%20-%20Price%3A%20%E0%A7%B340"
   },
 ];
 
