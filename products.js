@@ -79,5 +79,14 @@ const PRODUCTS_DATA = [
     image: "assets/products/9.jpg",
     whatsappLink: "https://wa.me/8801572917674?text=Hello!%20I%20would%20like%20to%20order%3A%20Bookmark%20(ID%3A%20009)%20-%20Price%3A%20%E0%A7%B340"
   },
+     {
+    id: "010",
+    name: "Yarn",
+    category: "Medium",
+    price: "70",
+    description: "50g premium quality Milk Cotton Yarn ( above 10 , per  50 g will cost 65 tk only )",
+    image: "assets/products/1_1.jpg,1_2.jpg,1_3.jpg",
+    whatsappLink: "https://wa.me/8801572917674?text=Hello!%20I%20would%20like%20to%20order%3A%20Yarn%20(ID%3A%20010)%20-%20Price%3A%20%E0%A7%B370"
+  },
 ];
 
